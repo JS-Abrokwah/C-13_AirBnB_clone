@@ -3,12 +3,12 @@
 import json
 from os import path
 from models.base_model import BaseModel
-#from models.state import State
-#from models.user import User
-#from models.place import Place
-#from models.review import Review
-#from models.amenity import Amenity
-#from models.city import City
+from models.state import State
+from models.user import User
+from models.place import Place
+from models.review import Review
+from models.amenity import Amenity
+from models.city import City
 
 
 class FileStorage():
@@ -40,8 +40,7 @@ class FileStorage():
         If the file doesn't exist, no exception should be raised)
         """
 
-        MODELS = [BaseModel,]
-#        MODELS = [Amenity, BaseModel, City, Place, Review, State, User]
+        MODELS = [Amenity, BaseModel, City, Place, Review, State, User]
 
         if path.exists(self.__file_path) is True:
             with open(self.__file_path, 'r', encoding='utf-8') as json_file:
