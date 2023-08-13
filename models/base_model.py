@@ -4,11 +4,12 @@ from uuid import uuid4
 from datetime import datetime
 from models import storage  # Import the storage object
 
+
 class BaseModel:
-    """ Base Model Class """
+    """Base Model Class"""
 
     def __init__(self, *args, **kwargs):
-        """ Initialize BaseModel """
+        """Initialize BaseModel"""
         if kwargs:
             for key, value in kwargs.items():
                 if key == "created_at" or key == "updated_at":
@@ -22,18 +23,18 @@ class BaseModel:
             storage.new(self)  # Use the storage object
 
     def __str__(self):
-        """ Return string representation of BaseModel """
+        """Return string representation of BaseModel"""
         return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
-        """ Save the current instance """
+        """Save the current instance"""
         self.updated_at = datetime.now()
         storage.save()  # Use the storage object
 
     def to_dict(self):
-        """ Return dictionary representation of BaseModel """
+        """Return dictionary representation of BaseModel"""
         base_dict = dict(self.__dict__)
-        base_dict['__class__'] = self.__class__.__name__
-        base_dict['created_at'] = base_dict['created_at'].isoformat()
-        base_dict['updated_at'] = base_dict['updated_at'].isoformat()
+        base_dict["__class__"] = self.__class__.__name__
+        base_dict["created_at"] = base_dict["created_at"].isoformat()
+        base_dict["updated_at"] = base_dict["updated_at"].isoformat()
         return base_dict

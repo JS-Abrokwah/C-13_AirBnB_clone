@@ -5,7 +5,7 @@ from models.base_model import BaseModel
 
 
 class User(BaseModel):
-    """ User that inherits from BaseModel
+    """User that inherits from BaseModel
 
     Attributes:
         email (str): Public class Attribute for user email
@@ -13,6 +13,7 @@ class User(BaseModel):
         first_name (str): Public class Attribute for user first name
         last_name (str): Public class Attribute for user last name
     """
+
     email = ""
     password = ""
     first_name = ""

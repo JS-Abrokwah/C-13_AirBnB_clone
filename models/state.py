@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 from models.base_model import BaseModel
+
 """Definition for State class"""
 
 
@@ -10,6 +11,7 @@ class State(BaseModel):
     Attributes:
         name (str): Public class attribute for user email
     """
+
     name = ""
 
     def __init__(self, *args, **kwargs):

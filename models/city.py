@@ -1,16 +1,18 @@
 #!/usr/bin/python3
 from models.base_model import BaseModel
+
 """Class defintion for City """
 
 
 class City(BaseModel):
-    """ Definition for City class
+    """Definition for City class
     This class inherits BaseModel
 
     Attributes:
         state_id (str): instance id for state objects
         name (str): State instance name
     """
+
     state_id = ""
     name = ""
 
