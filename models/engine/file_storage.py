@@ -2,13 +2,8 @@
 """File Storage for AirBnb Console"""
 import json
 from os import path
-from models.base_model import BaseModel
-from models.state import State
-from models.user import User
-from models.place import Place
-from models.review import Review
-from models.amenity import Amenity
-from models.city import City
+
+
 
 
 class FileStorage():
@@ -39,6 +34,13 @@ class FileStorage():
         exists ; otherwise, do nothing.
         If the file doesn't exist, no exception should be raised)
         """
+
+        from models.state import State
+        from models.user import User
+        from models.place import Place
+        #from models.review import Review
+        from models.amenity import Amenity
+        from models.city import City
 
         MODELS = [Amenity, BaseModel, City, Place, Review, State, User]
 
