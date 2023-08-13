@@ -22,7 +22,8 @@ class BaseModel:
         date_keys = ["created_at", "updated_at"]
         for key, value in data_dict.items():
             if key in date_keys:
-                setattr(self, key, datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f"))
+                setattr(self, key, datetime
+                        .strptime(value, "%Y-%m-%dT%H:%M:%S.%f"))
             elif key == "id":
                 self.id = value
             elif key == "__class__":
