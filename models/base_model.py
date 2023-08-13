@@ -2,7 +2,7 @@
 """ AirBnB BaseModel"""
 from uuid import uuid4
 from datetime import datetime
-import models
+from . import models
 
 
 class BaseModel:
