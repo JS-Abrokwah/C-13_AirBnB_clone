@@ -22,6 +22,19 @@ class BaseModel:
             self.updated_at = datetime.now()
             storage.new(self)  # Use the storage object
 
+    def deserialize(self, data_dict):
+        """ Deserializes attributes from a dictionary """
+        date_keys = ["created_at", "updated_at"]
+        for key, value in data_dict.items():
+            if key in date_keys:
+                setattr(self, key, datetime
+                        .strptime(value, "%Y-%m-%dT%H:%M:%S.%f"))
+            elif key == "id":
+                self.id = value
+            elif key == "__class__":
+                self.__class__.__name__ = value
+            else:
+                setattr(self, key, value)
     def __str__(self):
         """Return string representation of BaseModel"""
         return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
